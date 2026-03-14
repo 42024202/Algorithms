@@ -18,8 +18,13 @@ def count_list(array: list) -> int:
 
 def find_max_int(array: list) -> int:
     """Requrse function to find max int in list"""
+    if len(array) == 1:
+        return array[0]
+    max_int = find_max_int(array[1:])
+    return (max_int if max_int > array[0] else array[0])
+    
+    #First verions:
     if len(array) == 2:
         return (array[0] if array[0] > array[1] else array[1])
     else:
         return (array[0] if array[0] > find_max_int(array[1:]) else find_max_int(array[1:]))
-
