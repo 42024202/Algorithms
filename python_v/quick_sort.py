@@ -37,8 +37,19 @@ def quick_sort(array: list) -> list:
         support_element = array[0]
         bigger = [i for i in array[1:] if i > support_element]
         smaller = [i for i in array[1:] if i < support_element]
-        
         return quick_sort(smaller) + [support_element] + quick_sort(bigger)
 
-print(quick_sort([1,4,6,8,2,3]))
+
+def multiplacation_table(array: list) -> list:
+    """Muiltiplacate all elements in array by each other"""
+    if len(array) == 1:
+        return list(array[0] * array[0])
+    else:
+        final_table = []
+        for i in array:
+            new_table = list()
+            for g in array:
+                new_table.append(i * g)
+            final_table.append(new_table)
+    return final_table
 
